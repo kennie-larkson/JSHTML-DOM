@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Finding HTML element by tag name</title>
+</head>
+<body>
+    <!--In this tutorial we try to access and manipulate the DOM using the getElementsBytagName method on the DOM objects-->
+
+        <h2>Finding HTML Elements by Tag Name</h2>
+
+        <p>Hello World!</p>
+        <p>This example demonstrates the <b>getElementsByTagName</b> method.</p>
+        
+        <p id="demo"></p>
+    
+    <script>
+
+        let pTagElement = document.getElementsByTagName('p');
+        document.getElementById('demo').innerHTML = `
+        The text in the first paragraph (index 0) of the document is ${pTagElement[0].innerHTML}`;
+    </script>
+</body>
+</html>
