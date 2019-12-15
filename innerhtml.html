@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Document Object Model</title>
 </head>
 <body>
-    <!---->
+    <!--In this tutorial we try to access and manipulate the DOM using the getElementById method on the DOM objects-->
     <h2>Finding HTML elements by Id</h2>
-    <p id="intro">Hello World!</p>
+    <p id="intro">Hello World!</p>  <!--this paragraph element has an id of 'intro'-->
     <p>This example demonstrates the <b>getElementsById</b> method.</p>
 
-    <p id="demo"></p>
+    <p id="demo"></p>   <!--this paragraph element has an id of 'demo'-->
 
     <script>
-        let myElement = document.getElementById('intro');
-        document.getElementById('demo').innerHTML = `
-        The text from the intro paragraph is ${myElement.innerHTML}`;
+        /*DOM manipulation*/
+        let myElement = document.getElementById('intro');/*grab the paragraph with an id of 'intro' and store it as a javascript variable myElement*/
+        document.getElementById('demo').innerHTML = ` 
+        The text from the intro paragraph is ${myElement.innerHTML}`;  /*grab the paragraph with an id of 'demo' and set the innerHTML to the content within the backtick and the interpolation syntax*/
     </script>
 </body>
 </html>
