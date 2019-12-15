@@ -9,6 +9,7 @@
 <body>
     <!--In this tutorial we try to access and manipulate the DOM using the getElementsBytagName method on the DOM objects-->
 
+    <!--HTML LAYOUT-->
         <h2>Finding HTML Elements by Tag Name</h2>
 
         <p>Hello World!</p>
@@ -17,10 +18,11 @@
         <p id="demo"></p>
     
     <script>
+        /*DOM manipulation*/
 
-        let pTagElement = document.getElementsByTagName('p');
+        let pTagElement = document.getElementsByTagName('p');/*get every 'p' tag and store them as a javascript variable (these p tags are stored as an array list)*/
         document.getElementById('demo').innerHTML = `
-        The text in the first paragraph (index 0) of the document is ${pTagElement[0].innerHTML}`;
+        The text in the first paragraph (index 0) of the document is ${pTagElement[0].innerHTML}`; /*get the element with id 'demo' and set the innerHTML accordingly*/
     </script>
 </body>
 </html>
