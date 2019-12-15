@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Finding HTML elements by Class Name</title>
+</head>
+<body>
+
+        <h2>Finding HTML Elements by Class Name</h2>
+
+        <p>Hello World!</p>
+        
+        <p class="intro">The DOM is very useful.</p>
+        <p class="intro">This example demonstrates the <b>getElementsByClassName</b> method.</p>
+        
+        <p id="demo"></p>
+    
+    <script>
+        let className = document.getElementsByClassName('intro');
+        document.getElementById('demo').innerHTML = `
+        The second paragraph with class = "intro": ${className[1].innerHTML}`;
+    </script>
+</body>
+</html>
