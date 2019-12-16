@@ -19,19 +19,22 @@
 
     <p>Click "Try it" to display the value of each element in the form.</p>
 
-    <button onclick="myFunction()">Try it</button>
+    <button onclick="myFunction();">Try it</button>
 
     <p id="demo"></p>
 
     <script>
         function myFunction(){
 
-            let formObj = document.forms("frm1");
+            let formObj = document.forms["frm1"];
             let txt = "";
+            let i;
 
-            for(ele of formObj){
-                document.getElementById('demo').innerHTML = 
+            for(i=0; i< formObj.length; i++){
+                txt += formObj.elements[i].value +'<br>';
             }
+            document.getElementById('demo').innerHTML = txt;
+            
 
         }
         
