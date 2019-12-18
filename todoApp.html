@@ -12,28 +12,35 @@
         <h2>Your Favorite Todo App</h2>
         <form action="">
             <label for="input">Enter your todo:</label>
-            <input type="text" name="input-field" id="input-field" placeholder="Type here">
-            <button name="submit" value="Update list" onclick="myFunction()"></button>
+            <input type="text" name="input-field" id="input" placeholder="Type here">
+            
         </form>
 
-        <p class="list"></p>
+        <button type="button" onclick="myFunction();">Update List</button>
+
+        <h3>Todo list updated</h3>
+        <p id="list"></p>
+
+        
 
     </div>
+    
 
 
     <script>
 
         function myFunction(){
 
-            let inputField = document.getElementById('input-field');
-            let entry = inputField.value;
-            let updateBtn = document.getElementsByTagName('button');
+            const inputField = document.getElementById('input');
+            const entry = inputField.value;
+
+            /*let updateBtn = document.getElementsByTagName('button');*/
 
             if(entry === ""){
-                document.getElementsByClassName('list').innerHTML = `
-                <p>Please enter your todo in the input field</p>`;
-            }else{
-                document.getElementsByClassName('list').innerHTML =
+                document.getElementById('list').innerHTML = `
+                <span>**Please enter your todo in the input field**</span>`;
+            }else {
+                document.getElementById('list').innerHTML =
                 `<li>${entry}</li><br>`;
             }
 
