@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Your Favorite Todo App</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Fira+Sans|Montserrat|Playfair+Display&display=swap');
+        span{ color: red; font-family: 'Montserrat', sans-serif;}
+        body{ font-family: 'Fira Sans', sans-serif; align-content: center; justify-content: center;}
+        button{ color: white; background: blue; border: 5px thin blue; border-radius: 5px; font-size: 16px;}
+        .container{
+            position: relative;
+            padding: 10px 20px;
+            border: 2px solid limegreen;
+            border-radius: 15px;
+            width: 30%;
+            background: magenta;
+        }
+
+        h2{ font-family: 'Playfair Display', serif;}
+
+        label, input, button{
+            padding: 10px 5px;
+            margin: 10px 0;
+        }
+
+        label :focus{ border: 3px solid green;}
+    </style>
 </head>
 <body>
 
@@ -12,13 +35,13 @@
         <h2>Your Favorite Todo App</h2>
         <form action="">
             <label for="input">Enter your todo:</label>
-            <input type="text" name="input-field" id="input" placeholder="Type here">
+            <input type="text" name="input-field" id="input" placeholder="e.g. do my homework">
             
         </form>
 
-        <button type="button" onclick="myFunction();">Update List</button>
+        <button onclick="myFunction();">Update List</button>
 
-        <h3>Todo list updated</h3>
+        <h3 id="subheading"></h3>
         <p id="list"></p>
 
         
@@ -33,13 +56,16 @@
 
             const inputField = document.getElementById('input');
             const entry = inputField.value;
+            //entry.style.color = lemongreen;
 
             /*let updateBtn = document.getElementsByTagName('button');*/
 
             if(entry === ""){
                 document.getElementById('list').innerHTML = `
-                <span>**Please enter your todo in the input field**</span>`;
+                <span>**Please update your todo by typing in the input field**</span>`;
             }else {
+                document.getElementById('subheading').innerHTML = 
+                `Todo list updated<br>`;
                 document.getElementById('list').innerHTML =
                 `<li>${entry}</li><br>`;
             }
