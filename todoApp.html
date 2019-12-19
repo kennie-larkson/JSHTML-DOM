@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Your Favorite Todo App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Fira+Sans|Montserrat|Playfair+Display&display=swap');
         span{ color: red; font-family: 'Montserrat', sans-serif;}
-        body{ font-family: 'Fira Sans', sans-serif; align-content: center; justify-content: center;}
-        button{ color: white; background: blue; border: 5px thin blue; border-radius: 5px; font-size: 16px;}
+        body{ font-family: 'Fira Sans', sans-serif; align-content: center; justify-content: center;
+        display: flex; background: gainsboro;}
+        button{ color: white; background: blue;  border-radius: 5px; font-size: 16px;}
         .container{
-            position: relative;
-            padding: 10px 20px;
+            /*position: relative;*/
+            padding: 5px 20px;
+            margin: 40px 0;
             border: 2px solid limegreen;
             border-radius: 15px;
             width: 30%;
@@ -21,28 +24,50 @@
 
         h2{ font-family: 'Playfair Display', serif;}
 
+
         label, input, button{
-            padding: 10px 5px;
+            padding: 5px 5px;
             margin: 10px 0;
         }
 
-        label :focus{ border: 3px solid green;}
+        input{ border-radius: 10px;}
+        input:focus { border: 2px solid green; border-radius: 10px;}
+
+        li{
+            padding-bottom: 10px;
+            color: honeydew;
+        }
+
+        footer{
+            color: lawngreen;
+        }
+
+        a{
+            text-decoration: none;
+        }
+        
     </style>
 </head>
 <body>
 
     <div class="container">
         <h2>Your Favorite Todo App</h2>
+        <hr>
         <form action="">
             <label for="input">Enter your todo:</label>
-            <input type="text" name="input-field" id="input" placeholder="e.g. do my homework">
+            <input type="text" name="input-field" id="input" placeholder="e.g. do my homework" >
             
         </form>
 
         <button onclick="myFunction();">Update List</button>
 
         <h3 id="subheading"></h3>
+        <p id="complain"></p>
         <p id="list"></p>
+        <p id="storage"></p>
+        <hr>
+
+        <footer><small>Proudly designed by <a href="http://twitter.com/kennie_larkson">JavaScript Student</a></small></footer>
 
         
 
@@ -52,23 +77,40 @@
 
     <script>
 
+        function onLoad(){
+            document.onload = localStorage.getItem('input');
+        }
+
+        document.getElementById('storage').innerHTML = onLoad();
+
+        
+
+        
+
         function myFunction(){
 
             const inputField = document.getElementById('input');
             const entry = inputField.value;
-            //entry.style.color = lemongreen;
-
-            /*let updateBtn = document.getElementsByTagName('button');*/
 
             if(entry === ""){
-                document.getElementById('list').innerHTML = `
-                <span>**Please update your todo by typing in the input field**</span>`;
+                document.getElementById('complain').innerHTML = `
+                <span>**Please update your todo by typing in the input field**</span><br>`;
+                
             }else {
+                document.getElementById('complain').innerHTML = "";
                 document.getElementById('subheading').innerHTML = 
                 `Todo list updated<br>`;
-                document.getElementById('list').innerHTML =
-                `<li>${entry}</li><br>`;
+                
+                let li = document.createElement('li');
+                let todoItem = `${entry} <br>`;
+                li.innerHTML =  todoItem;
+                
+                document.getElementById('list').append(li);
+                
             }
+            inputField.value = "";
+
+            localStorage.setItem('input',entry);
 
 
         }
