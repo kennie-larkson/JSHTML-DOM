@@ -77,14 +77,6 @@
 
     <script>
 
-        function onLoad(){
-            document.onload = localStorage.getItem('input');
-        }
-
-        document.getElementById('storage').innerHTML = onLoad();
-
-        
-
         
 
         function myFunction(){
@@ -109,11 +101,12 @@
                 
             }
             inputField.value = "";
+            windows.localStorage.setItem('input', todoItem);
 
-            localStorage.setItem('input',entry);
-
-
+            
         }
+
+
 
 
     </script>
