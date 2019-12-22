@@ -53,13 +53,15 @@
     <div class="container">
         <h2>Your Favorite Todo App</h2>
         <hr>
-        <form action="">
+        <form  action="">
             <label for="input">Enter your todo:</label>
             <input type="text" name="input-field" id="input" placeholder="e.g. do my homework" >
             
         </form>
 
-        <button onclick="myFunction();">Update List</button>
+        <button id="btn" >Update List</button>
+
+        <!--<button id="btn" onclick="myFunction();">Update List</button>-->
 
         <h3 id="subheading"></h3>
         <p id="complain"></p>
@@ -77,12 +79,24 @@
 
     <script>
 
-        
+        let todos = [];
 
-        function myFunction(){
+        const addTodo = () =>{
+
+            /*if the event button were to be inside the form tag in the HTML, we'd have to pass event(e/ev) as an argument to the 
+            addTodo function and begin the function code with ev.preventDefault() so the form does not submit by default(as expected)
+            since we have other intentions for the data  */
+
+            let todo = {
+                id : Date.now(),
+                input : document.getElementById('input').value
+            }
 
             const inputField = document.getElementById('input');
             const entry = inputField.value;
+            todos.push(entry);
+            /*windows.localStorage.setItem('todo', entry); 
+            document.querySelector('form').reset();*/
 
             if(entry === ""){
                 document.getElementById('complain').innerHTML = `
@@ -98,13 +112,17 @@
                 li.innerHTML =  todoItem;
                 
                 document.getElementById('list').append(li);
+            
                 
             }
             inputField.value = "";
-            windows.localStorage.setItem('input', todoItem);
+            
 
             
         }
+
+        /*ensuring the DOM content has loaded completely before any actions are taken*/
+        document.addEventListener('DOMContentLoaded', ()=>{document.getElementById('btn').addEventListener('click', addTodo);});
 
 
 
