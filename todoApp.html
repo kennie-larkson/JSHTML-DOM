@@ -74,6 +74,9 @@
         
 
     </div>
+    <div id="msg">
+        <pre></pre>
+    </div>
     
 
 
@@ -87,16 +90,22 @@
             addTodo function and begin the function code with ev.preventDefault() so the form does not submit by default(as expected)
             since we have other intentions for the data  */
 
-            let todo = {
+            let todo = { /*saving data (key:value pair) as a javascript object*/
                 id : Date.now(),
                 input : document.getElementById('input').value
             }
 
+            todos.push(todo); /*adding todo object to the todos array*/
+
+            console.warn('added', {todo});/*to display on console*/
+            /*document.querySelector('#msg pre').textContent = '\n' + JSON.stringify(todos, '\t', 2); adding the Json object to DOM*/
+
+            /*saving to local storage*/
+            localStorage.setItem('MyTodoList', JSON.stringify(todos));
+
+
             const inputField = document.getElementById('input');
             const entry = inputField.value;
-            todos.push(entry);
-            /*windows.localStorage.setItem('todo', entry); 
-            document.querySelector('form').reset();*/
 
             if(entry === ""){
                 document.getElementById('complain').innerHTML = `
@@ -115,10 +124,11 @@
             
                 
             }
-            inputField.value = "";
-            
-
-            
+            document.querySelector('form').reset();
+            /* Or document.forms[0].reset();  to clear the form for the next entries*/
+            /*windows.localStorage.setItem('todo', todo); 
+            document.querySelector('form').reset();*/
+            /*inputField.value = "";*/            
         }
 
         /*ensuring the DOM content has loaded completely before any actions are taken*/
