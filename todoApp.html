@@ -11,7 +11,8 @@
         span{ color: red; font-family: 'Montserrat', sans-serif;}
         body{ font-family: 'Fira Sans', sans-serif; align-content: center; justify-content: center;
         display: flex; background: gainsboro;}
-        button{ color: white; background: blue;  border-radius: 5px; font-size: 16px;}
+        button{ color: white; background: blue;  border: none; font-size: 16px;}
+        button :focus{border: green;}
         .container{
             /*position: relative;*/
             padding: 5px 20px;
@@ -19,7 +20,7 @@
             border: 2px solid limegreen;
             border-radius: 15px;
             width: 30%;
-            background: magenta;
+            background: lightgray;
         }
 
         h2{ font-family: 'Playfair Display', serif;}
@@ -30,21 +31,23 @@
             margin: 10px 0;
         }
 
-        input{ border-radius: 10px;}
+       /* input{ border-radius: 10px;}*/
+       input{border: none; outline: none;}
         input:focus { border: 2px solid green; border-radius: 10px;}
 
         li{
             padding-bottom: 10px;
-            color: honeydew;
+            color: black;
         }
 
         footer{
-            color: lawngreen;
+            color: black;
         }
 
         a{
             text-decoration: none;
         }
+        hr{background: black;}
         
     </style>
 </head>
